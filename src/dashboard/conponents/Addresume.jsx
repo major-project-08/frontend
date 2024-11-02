@@ -15,11 +15,12 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useUser } from '@clerk/clerk-react'
-
+import { useNavigate } from 'react-router-dom'
 function Addresume() {
     const [openDialog, setOpenDialog] = useState(false)
     const [resumeTitle, setResumeTitle] = useState()
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
     const {user} = useUser()
 
     let toCreateResume = async () => {
@@ -38,6 +39,7 @@ function Addresume() {
         Global.CreateNewResume(data).then((res) => {
             setLoading(false)
             console.log(res)
+            navigate(`/dashboard/resume/${res.data.data.documentId}/edit`)
         }).catch((err) => {
             setLoading(false)
             console.log(err)
