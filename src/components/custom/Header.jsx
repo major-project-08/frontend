@@ -7,19 +7,21 @@ import { useUser } from '@clerk/clerk-react'
 function Header() {
     const { isSignedIn, user } = useUser()
     return <div className='p-3 px-5 flex justify-between items-center shadow-md'>
-        <img src={logo} alt="logo" height={100} width={100} />
+        <Link to="/dashboard" style={{cursor:'pointer'}}>
+            <img src={logo} alt="logo" height={100} width={100} />
+        </Link>
         <div>Header</div>
 
         {isSignedIn ?
-        <div className='flex items-center gap-2'>
-            <Link to="/dashboard">
-                <Button variant="outline">Dashboard</Button>
-            </Link>
-            <UserButton />
-        </div>
-        :
-        <Link to="/auth/sign-in">
-            <Button>Get Started</Button>
+            <div className='flex items-center gap-2'>
+                <Link to="/dashboard">
+                    <Button variant="outline">Dashboard</Button>
+                </Link>
+                <UserButton />
+            </div>
+            :
+            <Link to="/auth/sign-in">
+                <Button>Get Started</Button>
             </Link>
         }
     </div>
