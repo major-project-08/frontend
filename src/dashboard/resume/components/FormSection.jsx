@@ -6,7 +6,7 @@ import { LayoutGrid } from 'lucide-react'
 import Experiencedetails from './forms/Experiencedetails'
 import Summarydetails from './forms/Summarydetails'
 function FormSection() {
-    const [activeForm, setActiveForm] = useState(1)
+    const [activeForm, setActiveForm] = useState(3)
     const [enabledNext, setEnabledNext] = useState(false)
     return (
         <div>
