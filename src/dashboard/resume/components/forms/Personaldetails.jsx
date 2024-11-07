@@ -1,28 +1,105 @@
-import React from 'react'
-import { ResumeInfoContext } from '../../../../context/ResumeInfoContext'
-import { useContext } from 'react'
-function Personaldetails() {
-    const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext)
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { ResumeInfoContext } from '@/context/ResumeInfoContext'
+import { LoaderCircle } from 'lucide-react';
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import Global from './../../../../../service/Global';
+// import { toast } from '@/components/ui/sonner';
+import { toast } from 'sonner';
+
+function PersonalDetail({enabledNext}) {
+
+    const params=useParams();
+    const {resumeInfo,setResumeInfo}=useContext(ResumeInfoContext)
+
+    const [formData,setFormData]=useState();
+    const [loading,setLoading]=useState(false);
+    useEffect(()=>{
+        console.log("---",resumeInfo)
+    },[])
+
+    const handleInputChange=(e)=>{
+        enabledNext(false)
+        const {name,value}=e.target;
+
+        setFormData({
+            ...formData,
+            [name]:value
+        })
+        setResumeInfo({
+            ...resumeInfo,
+            [name]:value
+        })
+    }
+
+    const onSave=(e)=>{
+        // e.target.reset();
+        e.preventDefault();
+        setLoading(true)
+        const data={
+            data:formData
+        }
+        Global.UpdateResume(params?.resumeid,data).then(resp=>{
+            console.log(resp);
+            enabledNext(true);
+            setLoading(false);
+            toast.success("Details updated")
+        },(error)=>{
+            setLoading(false);
+        })
+        
+    }
     return (
-        <div className='shadow-lg rounded-lg p-5 border-t-4 border-t-primary mt-10'>
-            <h2 className='text-sm font-bold mb-2 text-center' style={{ color: resumeInfo?.themeColor }}>Personal Details</h2>
-            <p className='text-xs text-center'>Get started by some basic information about yourself</p>
-            <hr style={{ borderColor: resumeInfo?.themeColor }} />
-            <form>
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-5 my-5'>
-                    <input type='text' id='firstname' className='bg-transparent border-b-2 border-b-primary outline-none ' placeholder='Enter your firstname'/>
-                    <input type='text' id='lastname' className='bg-transparent border-b-2 border-b-primary outline-none' placeholder='Enter your lastname'/>
+    <div className='p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10'>
+        <h2 className='font-bold text-lg'>Personal Detail</h2>
+        <p>Get Started with the basic information</p>
+
+        <form onSubmit={onSave}>
+            <div className='grid grid-cols-2 mt-5 gap-3'>
+                <div>
+                    <label className='text-sm'>First Name</label>
+                    <Input name="firstName" defaultValue={resumeInfo?.firstName} required onChange={handleInputChange}  />
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-5 my-5'>
-                    <input type='text' id='phone' className='bg-transparent border-b-2 border-b-primary outline-none ' placeholder='Enter your phone number'/>
-                    <input type='email' id='email' className='bg-transparent border-b-2 border-b-primary outline-none' placeholder='Enter your email'/>
+                <div>
+                    <label className='text-sm'>Last Name</label>
+                    <Input name="lastName" required onChange={handleInputChange} 
+                    defaultValue={resumeInfo?.lastName} />
                 </div>
-                <div className='my-5 row-span-2'>
-                    <textarea id='address' className='bg-transparent border-b-2 border-b-primary outline-none w-full' placeholder='Enter your address'></textarea>
+                <div className='col-span-2'>
+                    <label className='text-sm'>Job Title</label>
+                    <Input name="jobTitle" required 
+                    defaultValue={resumeInfo?.jobTitle}
+                    onChange={handleInputChange}  />
                 </div>
-            </form>
-        </div>
+                <div className='col-span-2'>
+                    <label className='text-sm'>Address</label>
+                    <Input name="address" required 
+                    defaultValue={resumeInfo?.address}
+                    onChange={handleInputChange}  />
+                </div>
+                <div>
+                    <label className='text-sm'>Phone</label>
+                    <Input name="phone" required 
+                    defaultValue={resumeInfo?.phone}
+                    onChange={handleInputChange}  />
+                </div>
+                <div>
+                    <label className='text-sm'>Email</label>
+                    <Input name="email" required 
+                    defaultValue={resumeInfo?.email}
+                    onChange={handleInputChange}  />
+                </div>
+            </div>
+            <div className='mt-3 flex justify-end'>
+                <Button type="submit"
+                disabled={loading}>
+                    {loading?<LoaderCircle className='animate-spin' />:'Save'}
+                    </Button>
+            </div>
+        </form>
+    </div>
     )
 }
 
-export default Personaldetails
+export default PersonalDetail

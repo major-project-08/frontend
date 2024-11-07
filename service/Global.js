@@ -18,4 +18,9 @@ const GetResume = (emailResume) => {
     console.log(emailResume)
     return axiosCreate.get('/user-resumes?filters[userEmail][$eq]='+emailResume)
 }
-export default {CreateNewResume,GetResume}
+
+const UpdateResume = (id,data) => {
+    console.log(id,data)
+    return axiosCreate.put(`/user-resumes/${id}`,data)
+}
+export default {CreateNewResume,GetResume,UpdateResume}

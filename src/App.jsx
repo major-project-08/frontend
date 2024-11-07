@@ -7,6 +7,7 @@ import { Outlet } from 'react-router-dom'
 import { useUser } from '@clerk/clerk-react'
 import { Navigate } from 'react-router-dom'
 import Header from '@/components/custom/header'
+import { Toaster } from '@/components/ui/sonner'
 function App() {
   const [count, setCount] = useState(0)
   const { isSignedIn, user ,isLoaded} = useUser()
@@ -19,6 +20,7 @@ function App() {
     <>
       <Header />
       <Outlet />
+      <Toaster />
     </>
   )
 }
