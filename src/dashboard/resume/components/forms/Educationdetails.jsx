@@ -43,7 +43,7 @@ function Educationdetails({enabledNext}) {
         enabledNext(false)
         const data = {
             data: {
-                education: educationList
+                education: educationList.map(({ id, ...rest }) => rest)
             }
         }
         console.log('Request data:', data);

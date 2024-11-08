@@ -1,10 +1,14 @@
 import React from 'react'
 import { SignIn } from '@clerk/clerk-react'
+import Header from '@/components/custom/header'
 function SignInPage() {
     return (
-        <div className='flex justify-center items-center my-20'>
-            <SignIn />
-        </div>
+        <>
+            {/* <Header /> */}
+            <div className='flex justify-center items-center my-20'>
+                <SignIn />
+            </div>
+        </>
     )
 }
 

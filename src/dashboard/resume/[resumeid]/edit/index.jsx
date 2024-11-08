@@ -7,7 +7,7 @@ import { ResumeInfoContext } from '../../../../context/ResumeInfoContext'
 import { useState } from 'react'
 function EditResume() {
     const params = useParams()
-    const [resumeInfo, setResumeInfo] = useState()
+    const [resumeInfo, setResumeInfo] = useState(dummy)
     useEffect(() => {
         console.log(params.resumeid)
         setResumeInfo(dummy)

@@ -13,7 +13,8 @@ import Global from '../../../../../service/Global'
 import { PlusSquare, MinusSquare } from 'lucide-react'
 import RichTextEditor from './../RichTextEditor'
 import { Loader2 } from 'lucide-react'
-
+import { toast } from 'sonner'
+import { useParams } from 'react-router-dom'
 const formField = {
     title: '',
     companyName: '',
@@ -27,6 +28,7 @@ const formField = {
 function Experiencedetails({enabledNext}) {
     const [loading, setLoading] = useState(false)
     const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext)
+    const params = useParams()
     const [experienceList, setExperienceList] = useState([
         {
             title: '',
@@ -76,18 +78,19 @@ function Experiencedetails({enabledNext}) {
         setLoading(true)
         const data={
             data:{
-                Experience:experienceList.map(({ id, ...rest }) => rest)
+                experience:experienceList.map(({ id, ...rest }) => rest)
             }
         }
 
         console.log(data)
-        enabledNext(true)
-        Global.UpdateResume(resumeInfo?.resumeId,data).then(res=>{
+        Global.UpdateResume(params?.resumeid,data).then(res=>{
             console.log(res);
             setLoading(false);
-            toast('Details updated !')
+            enabledNext(true)
+            toast.success('Details updated !')
         },(error)=>{
             setLoading(false);
+            toast.error('Something went wrong')
         })
 
     }

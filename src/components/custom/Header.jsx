@@ -6,7 +6,7 @@ import { UserButton } from '@clerk/clerk-react'
 import { useUser } from '@clerk/clerk-react'
 function Header() {
     const { isSignedIn, user } = useUser()
-    return <div className='p-3 px-5 flex justify-between items-center shadow-md'>
+    return <div className='p-3 px-5 flex justify-between items-center shadow-md sticky top-0 bg-white z-50'>
         <Link to="/dashboard" style={{cursor:'pointer'}}>
             <img src={logo} alt="logo" height={100} width={100} />
         </Link>

@@ -6,8 +6,9 @@ import { LayoutGrid } from 'lucide-react'
 import Experiencedetails from './forms/Experiencedetails'
 import Summarydetails from './forms/Summarydetails'
 import Educationdetails from './forms/Educationdetails'
+import Skilldetails from './forms/Skilldetails'
 function FormSection() {
-    const [activeForm, setActiveForm] = useState(4)
+    const [activeForm, setActiveForm] = useState(1)
     const [enabledNext, setEnabledNext] = useState(false)
     return (
         <div>
@@ -16,13 +17,14 @@ function FormSection() {
                 <div className='flex gap-2'>
                     {/* <Button><ArrowRight /></Button> */}
                     {activeForm > 1 && <Button onClick={() => setActiveForm(activeForm - 1)}><ArrowLeft /></Button>}
-                    {activeForm < 4 && <Button disabled={!enabledNext} onClick={() => setActiveForm(activeForm + 1)}>next<ArrowRight /></Button>}
+                    {activeForm < 5 && <Button disabled={!enabledNext} onClick={() => setActiveForm(activeForm + 1)}>next<ArrowRight /></Button>}
                 </div>
             </div>
             {activeForm === 1 ? <Personaldetails enabledNext={(v) => setEnabledNext(v)}/>
             : activeForm === 2 ? <Summarydetails enabledNext={(v) => setEnabledNext(v)}/>
             : activeForm === 3 ? <Experiencedetails enabledNext={(v) => setEnabledNext(v)}/>
             : activeForm === 4 ? <Educationdetails enabledNext={(v) => setEnabledNext(v)}/>
+            : activeForm === 5 ? <Skilldetails enabledNext={(v) => setEnabledNext(v)}/>
             : null}
         </div>
     )
