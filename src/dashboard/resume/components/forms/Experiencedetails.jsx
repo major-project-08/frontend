@@ -40,6 +40,11 @@ function Experiencedetails({enabledNext}) {
             workSummery: '',
         }
     ])
+
+    useEffect(()=>{
+        resumeInfo && setExperienceList(resumeInfo?.experience)
+    },[])
+
     const handleChange = (e, index) => {
         const { name, value } = e.target
         const updatedExperienceList = [...experienceList]
@@ -47,6 +52,7 @@ function Experiencedetails({enabledNext}) {
         setExperienceList(updatedExperienceList)
         setResumeInfo({ ...resumeInfo, experience: updatedExperienceList })
     }
+    
     const AddNewExperience = () => {
         setExperienceList([...experienceList, {
             title: '',

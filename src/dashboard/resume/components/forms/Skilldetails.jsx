@@ -20,6 +20,10 @@ function Skilldetails({enabledNext}) {
         rating:0
     }])
 
+    useEffect(()=>{
+        resumeInfo && setSkillsList(resumeInfo?.skills)
+    },[])
+    
     const handleSkillChange = (index,field,value)=>{
         const newSkills = [...skillsList]
         newSkills[index][field] = value
@@ -73,7 +77,7 @@ function Skilldetails({enabledNext}) {
                     <div key={index} className='flex justify-between items-center gap-5 border p-3 rounded-lg mb-3'>
                         <div>
                             <label>Skill Name</label>
-                            <Input type='text' value={skill.name} onChange={(e)=>handleSkillChange(index,'name',e.target.value)}/>
+                            <Input type='text' value={skill?.name} onChange={(e)=>handleSkillChange(index,'name',e.target.value)}/>
                         </div>
                         <Rating style={{ maxWidth: 125 }} value={skill?.rating} onChange={(value)=>handleSkillChange(index,'rating',value)} />
                     </div>

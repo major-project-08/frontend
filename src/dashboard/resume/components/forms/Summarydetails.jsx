@@ -63,7 +63,7 @@ function Summarydetails({ enabledNext }) {
                         <label htmlFor='summary'>Add Summary</label>
                         <Button variant='outline' onClick={() => generateSummaryFromAI()} size='sm' type='button' className='border-primary text-primary px-4 py-2 rounded-md'><Brain className='h-4 w-4' />Generate from AI</Button>
                     </div>
-                    <Textarea id='summary' value={summary} required onChange={(e) => setSummary(e.target.value)} className='w-full h-24 border-2 border-gray-300 rounded-md p-2 mt-5 shadow-sm' placeholder='Enter your summary' />
+                    <Textarea id='summary' value={resumeInfo?.summery} required onChange={(e) => setSummary(e.target.value)} className='w-full h-24 border-2 border-gray-300 rounded-md p-2 mt-5 shadow-sm' placeholder='Enter your summary' />
                     <div className='flex justify-end mt-5'>
                         <Button type="submit"
                             disabled={loading}>

@@ -23,4 +23,8 @@ const UpdateResume = (id,data) => {
     console.log(id,data)
     return axiosCreate.put(`/user-resumes/${id}`,data)
 }
-export default {CreateNewResume,GetResume,UpdateResume}
+
+const GetResumeById = (id) => {
+    return axiosCreate.get(`/user-resumes/${id}?populate=*`)
+}
+export default {CreateNewResume,GetResume,UpdateResume,GetResumeById}

@@ -26,6 +26,10 @@ function Educationdetails({enabledNext}) {
         }
     ])
 
+    useEffect(()=>{
+        resumeInfo && setEducationList(resumeInfo?.education)
+    },[])
+
     const AddNewEducation = () => {
         setEducationList([...educationList, { universityName: "", degree: "", startDate: "", endDate: "", major: "", description: "" }])
     }

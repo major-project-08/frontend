@@ -10,8 +10,8 @@ import { AIChatSession } from '../../../../service/ALmodel';
 import { LoaderCircle } from 'lucide-react'
 
 const prompt = "position title: {positionTitle}, depends on position title only give me 5 bullet points for my experince in resume, give me result as object and the object should contain a key 'experience'and the value is in html format onlly give <ul> tag and 5 li tags in value"
-function RichTextEditor({ index, onRichTextEditorChange }) {
-    const [value, setValue] = useState()
+function RichTextEditor({ index, onRichTextEditorChange, defaultValue }) {
+    const [value, setValue] = useState(defaultValue)
     const { resumeInfo , setResumeInfo} = useContext(ResumeInfoContext)
     const [loading, setLoading] = useState(false)
 
