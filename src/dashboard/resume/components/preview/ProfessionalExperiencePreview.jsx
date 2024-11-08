@@ -11,7 +11,8 @@ function ProfessionalExperiencePreview({ resumeInfo }) {
                     <h2 className='text-xs font-normal flex justify-between' >{experience?.companyName}, {experience?.city}, {experience?.state}
                         <span className='text-xs font-normal'>{experience?.startDate} - {experience?.currentlyWorking ? 'Present' : experience?.endDate}</span>
                     </h2>
-                    <p className='text-xs font-normal my-2'>{experience.workSummery}</p>
+                    {/* <p className='text-xs font-normal my-2'>{experience.workSummery}</p> */}
+                    <div className='text-xs font-normal my-2' dangerouslySetInnerHTML={{ __html: experience?.workSummery }} />
                 </div>
             ))}
         </div>
