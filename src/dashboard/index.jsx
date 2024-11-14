@@ -29,7 +29,7 @@ function DashboardPage() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-10">
                 <Addresume />
                 {resumeList.length > 0 && resumeList.map((resume,index) => (
-                    <ResumeCard resume={resume} key={index} />
+                    <ResumeCard resume={resume} key={index} refreshData={getResumeList} />
                 ))}
             </div>
         </div>

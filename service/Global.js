@@ -27,4 +27,9 @@ const UpdateResume = (id,data) => {
 const GetResumeById = (id) => {
     return axiosCreate.get(`/user-resumes/${id}?populate=*`)
 }
-export default {CreateNewResume,GetResume,UpdateResume,GetResumeById}
+
+const DeleteResume = (id) => {
+    return axiosCreate.delete(`/user-resumes/${id}`)
+}
+
+export default {CreateNewResume,GetResume,UpdateResume,GetResumeById,DeleteResume}
