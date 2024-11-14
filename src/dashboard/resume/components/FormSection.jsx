@@ -9,6 +9,7 @@ import Educationdetails from './forms/Educationdetails'
 import Skilldetails from './forms/Skilldetails'
 import { useParams } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
+import ThemeColor from './ThemeColor'
 // import ViewResume from '../../../my-resume/[resumeId]/view/index'
 function FormSection() {
     const [activeForm, setActiveForm] = useState(1)
@@ -17,7 +18,7 @@ function FormSection() {
     return (
         <div>
             <div className='flex justify-between items-center'>
-                <Button variant='outline' size='sm' className='flex gap-2'><LayoutGrid />Theme</Button>
+                <ThemeColor />
                 <div className='flex gap-2'>
                     {/* <Button><ArrowRight /></Button> */}
                     {activeForm > 1 && <Button onClick={() => setActiveForm(activeForm - 1)}><ArrowLeft /></Button>}
