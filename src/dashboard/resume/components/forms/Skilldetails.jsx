@@ -16,6 +16,7 @@ function Skilldetails({enabledNext}) {
     // const [enabledNext,setEnabledNext] = useState(false)
     const params = useParams()
     const [skillsList,setSkillsList] = useState([{
+        // id:'',
         name:"",
         rating:0
     }])
@@ -49,7 +50,7 @@ function Skilldetails({enabledNext}) {
         }
         console.log(data)
 
-        Global.UpdateResume(params.resumeid,data)
+        Global.UpdateResume(params?.resumeid,data)
             .then((res)=>{
                 setLoading(false)
                 enabledNext(true)
