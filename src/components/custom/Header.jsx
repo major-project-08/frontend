@@ -10,7 +10,7 @@ function Header() {
         <Link to="/dashboard" style={{cursor:'pointer'}}>
             <img src={logo} alt="logo" height={100} width={100} />
         </Link>
-        <div>Header</div>
+        <div>ScholarSuit</div>
 
         {isSignedIn ?
             <div className='flex items-center gap-2'>

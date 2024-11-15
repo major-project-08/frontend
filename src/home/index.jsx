@@ -4,7 +4,12 @@ import Header from '@/components/custom/Header'
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
 import heroBg from '../assets/images/image.jpg'
+import { Link } from 'react-router-dom'
+import { useUser } from '@clerk/clerk-react'
 function HomePage() {
+    const { isSignedIn, isLoaded } = useUser()
+
+
     return <>
         {/* <UserButton /> */}
         <Header />
@@ -14,7 +19,9 @@ function HomePage() {
                 <p className='text-lg text-muted-foreground text-center'>Your one stop solution for all your academic needs</p>
             </div>
             <div>
-                <Button className='flex items-center gap-2'>Get Started<ArrowRight className='w-4 h-4' /></Button>
+                <Link to={isSignedIn ? "/dashboard" : "/auth/sign-in"}>
+                    <Button className='flex items-center gap-2'>Get Started<ArrowRight className='w-4 h-4' /></Button>
+                </Link>
             </div>
         </div>
     </>
