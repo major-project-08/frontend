@@ -1,9 +1,7 @@
-import React from 'react'
-import logo from '../../../public/logo.svg'
 import { Button } from '@/components/ui/button'
+import { UserButton, useUser } from '@clerk/clerk-react'
 import { Link } from 'react-router-dom'
-import { UserButton } from '@clerk/clerk-react'
-import { useUser } from '@clerk/clerk-react'
+import logo from '../../../public/logo.svg'
 function Header() {
     const { isSignedIn, user } = useUser()
     return <div className='p-3 px-5 flex justify-between items-center shadow-md sticky top-0 bg-white z-50'>
