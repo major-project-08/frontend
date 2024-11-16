@@ -1,33 +1,18 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "package.json",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "public/**/*",
-            "use": "@vercel/static"
-        }
+      {
+        "src": "vite.config.js",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "dist" }
+      }
     ],
     "routes": [
-        {
-            "src": "/api/(.*)",
-            "dest": "/api/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/public/$1"
-        }
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
     ],
-    "env": {
-        "NODE_ENV": "production",
-        "API_URL": "https://example.com/api"
-    },
-    "functions": {
-        "api/**/*.js": {
-            "memory": 128,
-            "maxDuration": 10
-        }
-    }
-}
+    "framework": "vite"
+  }
+  
