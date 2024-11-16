@@ -15,7 +15,7 @@ function HomePage() {
         <Header />
         <div className='flex flex-col items-center justify-center h-screen' style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
             <div>
-                <h1 className='text-4xl font-bold text-center'>Scholar<span className='text-primary'>Suit</span></h1>
+                <h1 className='text-4xl font-bold text-center'>Scholar<span className='text-primary'>Suite</span></h1>
                 <p className='text-lg text-muted-foreground text-center'>Your one stop solution for all your academic needs</p>
             </div>
             <div>

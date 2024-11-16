@@ -8,9 +8,9 @@ function Header() {
     const { isSignedIn, user } = useUser()
     return <div className='p-3 px-5 flex justify-between items-center shadow-md sticky top-0 bg-white z-50'>
         <Link to="/" style={{cursor:'pointer'}}>
-            <img src={logo} alt="logo" height={100} width={100} />
+            <img src={logo} className='w-5 h-5' alt="logo" height={100} width={100} />
         </Link>
-        <div>ScholarSuit</div>
+        <div>ScholarSuite</div>
 
         {isSignedIn ?
             <div className='flex items-center gap-2'>

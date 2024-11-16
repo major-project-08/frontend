@@ -1,20 +1,20 @@
-import { Editor, EditorProvider, Toolbar, BtnUnderline, BtnStrikeThrough, BtnNumberedList, BtnBulletList, BtnLink, BtnClearFormatting } from 'react-simple-wysiwyg'
-import { useState } from 'react'
-import { BtnBold, BtnItalic, BtnUndo, BtnRedo, Separator } from 'react-simple-wysiwyg'
-import { Brain } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ResumeInfoContext } from '@/context/ResumeInfoContext'
-import { useContext } from 'react'
-import { toast } from 'sonner';
-import { AIChatSession } from '../../../../service/ALmodel';
-import { LoaderCircle } from 'lucide-react'
+import { Brain, LoaderCircle } from 'lucide-react'
+import { useContext, useEffect, useState } from 'react'
+import { BtnBold, BtnBulletList, BtnClearFormatting, BtnItalic, BtnLink, BtnNumberedList, BtnRedo, BtnStrikeThrough, BtnUnderline, BtnUndo, Editor, EditorProvider, Separator, Toolbar } from 'react-simple-wysiwyg'
+import { toast } from 'sonner'
+import { AIChatSession } from '../../../../service/ALmodel'
 
-const prompt = "position title: {positionTitle}, depends on position title only give me 5 bullet points for my experince in resume, give me result as object and the object should contain a key 'experience'and the value is in html format onlly give <ul> tag and 5 li tags in value"
+const prompt = "position title: {positionTitle}, depends on position title only give me 2 bullet points for my experince in resume, give me result as object and the object should contain a key 'experience'and the value is in html format onlly give <ul> tag and 2 li tags in value"
 function RichTextEditor({ index, onRichTextEditorChange, defaultValue }) {
     const [value, setValue] = useState(defaultValue)
     const { resumeInfo , setResumeInfo} = useContext(ResumeInfoContext)
     const [loading, setLoading] = useState(false)
 
+    useEffect(()=>{
+        update();
+    },[value])
     const generateFromAI = async () => {
         setLoading(true)
         if(!resumeInfo?.experience[index]?.title){
@@ -30,6 +30,9 @@ function RichTextEditor({ index, onRichTextEditorChange, defaultValue }) {
         setLoading(false)
         // setSummary(resp.response.text())
         // setAIGeneratedSummaryList(JSON.parse(resp.response.text()))
+    }
+    let update = ()=>{
+        setResumeInfo({...resumeInfo , workSummery : value})
     }
     return (
         <div>

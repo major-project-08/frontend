@@ -1,7 +1,7 @@
 import axios from 'axios'
 let apiKey = import.meta.env.VITE_STRAPI_API_KEY
 const axiosCreate = axios.create({
-    baseURL: 'http://localhost:1337/api',
+    baseURL: import.meta.env.VITE_BASE_URL+'/api/',
     headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${apiKey}`
