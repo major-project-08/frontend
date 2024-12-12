@@ -4,6 +4,7 @@ import { useUser } from '@clerk/clerk-react'
 import Global from '../../service/Global'
 import { useEffect, useState } from 'react'
 import ResumeCard from './conponents/ResumeCard'
+import ChatbotButton from './conponents/ChatbotButtom'
 function DashboardPage() {
     const {user} = useUser()
     const [resumeList, setResumeList] = useState([])
@@ -32,6 +33,7 @@ function DashboardPage() {
                     <ResumeCard resume={resume} key={index} refreshData={getResumeList} />
                 ))}
             </div>
+            <ChatbotButton />
         </div>
     )
 }
