@@ -33,6 +33,12 @@ function DashboardPage() {
                     <ResumeCard resume={resume} key={index} refreshData={getResumeList} />
                 ))}
             </div>
+            <div className='mt-6 font-bold text-lg'>
+                <span>Match your Resume with the job description </span>
+                <a href="https://resume-analyzer-qxw8nben8ymegahgcbrbmw.streamlit.app/" target="_blank" rel="noopener noreferrer" className='text-primary'>
+                    Resume Analyzer
+                </a>
+            </div>
             <ChatbotButton />
         </div>
     )
