@@ -30,7 +30,7 @@ function ViewResume() {
                     <h2 className='text-2xl text-center'>Congratulations! Your resume is ready</h2>
                     <p className='text-center text-sm text-gray-500'>Your resume has been generated successfully. You can download it or share it with others.</p>
                     <div className='flex justify-between gap-5 m-5 px-44'>
-                        <Button onClick={HandleDownload}>Download</Button>
+                        <Button onClick={HandleDownload}>Download / Print</Button>
                         <RWebShare
                             data={{
                                 text: "To see my resume click here",
