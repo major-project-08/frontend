@@ -5,16 +5,17 @@ import { useContext, useEffect, useState } from 'react'
 import { BtnBold, BtnBulletList, BtnClearFormatting, BtnItalic, BtnLink, BtnNumberedList, BtnRedo, BtnStrikeThrough, BtnUnderline, BtnUndo, Editor, EditorProvider, Separator, Toolbar } from 'react-simple-wysiwyg'
 import { toast } from 'sonner'
 import { AIChatSession } from '../../../../service/ALmodel'
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 const prompt = "position title: {positionTitle}, depends on position title only give me 2 bullet points for my experince in resume, give me result as object and the object should contain a key 'experience'and the value is in html format onlly give <ul> tag and 2 li tags in value"
-function RichTextEditor({ index, onRichTextEditorChange, defaultValue }) {
-    const [value, setValue] = useState(defaultValue)
+function RichTextEditor({ onRichTextEditorChange, defaultValue, index }) {
+    const [value, setValue] = useState(defaultValue || '')
     const { resumeInfo , setResumeInfo} = useContext(ResumeInfoContext)
     const [loading, setLoading] = useState(false)
 
     useEffect(()=>{
         update();
-    },[value])
+    },[value,index])
     const generateFromAI = async () => {
         setLoading(true)
         if(!resumeInfo?.experience[index]?.title){
