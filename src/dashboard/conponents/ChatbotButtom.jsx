@@ -16,7 +16,7 @@ const ChatbotButton = () => {
                     </button>
                     <zapier-interfaces-chatbot-embed
                         is-popup='false'
-                        chatbot-id='cm4lggbi1000n9dtobr4r82jp'
+                        chatbot-id='cm8rhniz3000f3mc63gui8bxm'
                         height='600px'
                         width='400px'
                     />
