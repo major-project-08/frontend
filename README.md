@@ -6,7 +6,8 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-"# major-project" 
+"# major-project"
+
 # 💻 Major Project Frontend
 
 This repository contains the frontend of the **Major Project**, built using [React](https://reactjs.org/) and [Vite](https://vitejs.dev/). It ensures a fast and modern development experience using Hot Module Replacement, optimized builds, and clean structure.
@@ -53,7 +54,24 @@ npm run dev
 # or
 yarn dev
 ```
+---
+## 📁 Project Structure
 
+```
+frontend/
+├── public/             # Static assets
+├── src/
+│   ├── assets/         # Images, icons, etc.
+│   ├── components/     # Reusable UI components
+│   ├── pages/          # Page-level components
+│   ├── services/       # API and business logic
+│   ├── App.jsx         # Main application component
+│   └── main.jsx        # Application entry point
+├── .eslintrc.cjs       # ESLint configuration
+├── index.html          # HTML template
+├── package.json        # Project metadata and scripts
+└── vite.config.js      # Vite configuration
+```
 ---
 ## 📦 Available Scripts
 
