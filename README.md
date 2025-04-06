@@ -83,3 +83,13 @@ frontend/
 | `npm run lint`    | Check for linting issues                         |
 | `npm run format`  | Format code using Prettier (if configured)       |
 | `npm run test`    | Run unit tests (if test setup is included)       |
+
+---
+## ✅ Best Practices
+
+- Write clean and modular code using **React Hooks**.
+- Organize components and pages by functionality.
+- Use **ESLint** and **Prettier** to maintain code quality.
+- Keep UI components reusable and atomic.
+- Commit frequently with meaningful messages.
+
