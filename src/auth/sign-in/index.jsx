@@ -4,7 +4,7 @@ import Header from '@/components/custom/header'
 function SignInPage() {
     return (
         <>
-            {/* <Header /> */}
+            <Header />
             <div className='flex justify-center items-center my-20'>
                 <SignUp />
             </div>

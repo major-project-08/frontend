@@ -13,7 +13,7 @@ import ThemeColor from './ThemeColor'
 // import ViewResume from '../../../my-resume/[resumeId]/view/index'
 function FormSection() {
     const [activeForm, setActiveForm] = useState(1)
-    const [enabledNext, setEnabledNext] = useState(false)
+    const [enabledNext, setEnabledNext] = useState(true)
     const params = useParams()
     return (
         <div>
